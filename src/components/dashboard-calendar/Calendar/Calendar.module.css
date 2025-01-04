@@ -1,0 +1,111 @@
+.calendarContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  background: #1c2431;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  flex: 1; /* Se asegura que ocupe el espacio disponible */
+  text-align: center; /* Centra el texto */
+  font-size: 1rem; /* Texto más pequeño */
+  font-weight: normal;
+  margin: 0;
+  overflow: hidden; /* Evita desbordamientos */
+  white-space: nowrap; /* No permite saltos de línea */
+  text-overflow: ellipsis; /* Muestra "..." si el texto es muy largo */
+  width: 300px; /* Fija el ancho máximo del título */
+}
+
+.header button {
+  background-color: #14b8a6;
+  color: white;
+  border: none;
+  padding-inline: 10px;
+  padding-block: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.header button:hover {
+  background-color: #0d9488;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columnas */
+  grid-template-rows: repeat(5, 1fr); /* 6 filas fijas */
+  gap: 4px; /* Sin espacios */
+  flex: 1;
+  width: 100%;
+  height: calc(100% - 60px); /* Espacio dinámico para las celdas */
+}
+
+.day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #2d3744;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 4px;
+  aspect-ratio: 1; /* Relación de aspecto 1:1 */
+}
+
+.day:hover {
+  background-color: #319795;
+  color: #edf2f7;
+}
+
+.day:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #2d3748;
+  color: #e2e8f0;
+  text-align: left;
+  border-radius: 4px;
+  padding: 12px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s;
+  border: 1px solid #404d64;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #2d3748 transparent transparent transparent;
+}
+
+.today {
+  font-weight: bold;
+  background-color: #ffeb3b;
+}

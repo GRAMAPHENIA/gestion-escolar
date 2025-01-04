@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# App de Administracion Escolar.
 
-## Getting Started
+### Estructura de la aplicación
 
-First, run the development server:
+```/educational-management-app
+├── /components
+│   ├── /InstitutionCard
+│   ├── /Calendar
+│   ├── /Task
+│   ├── /Student
+│   ├── /Evaluation
+│   ├── /Class
+│   ├── /Note
+│   └── /Navbar
+├── /pages
+│   ├── /api
+│   │   ├── /institutions.ts
+│   │   ├── /students.ts
+│   │   ├── /tasks.ts
+│   │   ├── /evaluations.ts
+│   ├── /institutions
+│   │   └── /[id].tsx
+│   ├── /calendar.tsx
+│   ├── /students.tsx
+│   ├── /tasks.tsx
+│   ├── /evaluations.tsx
+│   ├── /notes.tsx
+│   └── /index.tsx
+├── /data
+│   ├── institutions.ts
+│   └── students.ts
+├── /types
+│   ├── Institution.ts
+│   ├── Student.ts
+│   ├── Evaluation.ts
+│   ├── Task.ts
+│   └── Note.ts
+└── /utils
+    ├── /storage.ts
+    └── /calendar.ts
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+_Vamos a tener un panel para agregar, editar y eliminar instituciones. Cada institución tendrá atributos como nombre, logo, horarios, y materias asignadas._
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`components/InstitutionCard/InstitutionCard.tsx`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`pages/api/institutions.ts` (API para manejar instituciones)
 
-## Learn More
+## Calendario Inteligente
 
-To learn more about Next.js, take a look at the following resources:
+_El calendario debe ser unO centralizado donde se muestren todas las actividades (clases, reuniones, evaluaciones, etc.). Este calendario también permitirá filtrar las actividades por institución y mostrar alertas._
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`components/Calendar/Calendar.tsx`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Gestión de Clases y Evaluaciones
 
-## Deploy on Vercel
+_Aquí podrás crear, editar, y organizar clases por institución. También se permite la planificación de evaluaciones con notificaciones previas._
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`components/Class/Class.tsx`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Seguimiento de Estudiantes
+
+_Para el seguimiento de los estudiantes, se gestionan los datos, asistencia, calificaciones y notas._
+
+`components/Student/Student.tsx`
+
+`types/Student.ts`
+
+# Notas y Tareas Administrativas
+
+_Podemos crear una página donde se puedan agregar notas rápidas o registrar tareas administrativas por institución._
+
+`components/Note/Note.tsx`
+
+# Sincronización y Acceso Multidispositivo
+
+_Proximos pasos..._
+
+`npm install react-dnd react-dnd-html5-backend`
+
