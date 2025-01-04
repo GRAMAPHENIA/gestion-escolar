@@ -60,7 +60,7 @@ export default function InstitutionPage() {
     },
     {
       label: "Calendario",
-      path: "calendar",
+      path: "calendario",
       icon: <FaCalendarAlt className="mr-3" />,
     },
     {
@@ -83,11 +83,11 @@ export default function InstitutionPage() {
 
   function renderSection(): React.ReactNode {
     switch (activeSection) {
-      case "calendar":
+      case "calendario":
         return (
           <div>
-            {/* <Calendar /> */}
-            <Board/>
+            {/* <calendario /> */}
+            <Board />
           </div>
         );
       case "students":
@@ -123,9 +123,9 @@ export default function InstitutionPage() {
         }}
       />
 
-      {/* Main Content */}
+      {/* Contenido Principal */}
       <main className="ml-64 flex-grow p-6">
-        <h2 className="text-2xl font-semibold text-white mb-6">
+        <h2 className="text-3xl font-bold text-white mb-6 capitalize tracking-wide pb-2">
           {activeSection}
         </h2>
         {renderSection()}
